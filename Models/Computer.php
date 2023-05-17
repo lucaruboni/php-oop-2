@@ -4,8 +4,9 @@
 class Computer{
  
 
-    function __construct(protected string $model, protected string $manufacturer, protected string $storage_capacity, protected string $gpu,
-    protected int $ram){
+    function __construct(public string $type, public string $model, public string $manufacturer, public string $storage_capacity, public string $gpu,
+    public int $ram){
+        $this->type = $type;
        $this->model = $model;
        $this->manufacturer = $manufacturer;
        $this->storage_capacity = $storage_capacity;
@@ -13,7 +14,7 @@ class Computer{
        $this->ram = $ram;
     }
     public function get_computer_info(){
-      return "$this->model, $this->manufacturer, $this->storage_capacity, $this->gpu, $this->ram";
+      return "$this->type, $this->model, $this->manufacturer, $this->storage_capacity, $this->gpu, $this->ram";
     }
    
    
