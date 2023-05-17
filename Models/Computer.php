@@ -13,7 +13,7 @@ class Computer{
        $this->ram = $ram;
     }
     public function get_computer_info(){
-      return "$this->model $this->manufacturer $this->storage_capacity $this->gpu $this->ram";
+      return "$this->model, $this->manufacturer, $this->storage_capacity, $this->gpu, $this->ram";
     }
    
    
