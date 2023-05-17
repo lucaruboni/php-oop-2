@@ -13,9 +13,28 @@ pensate a cosa compone un pc: 'ha un' monitor? 'ha una' mbo? 'ha una' keyboard? 
 aggiungere un metodo che stampi la stringa con tutte le info del dispositivo (oltre ai getter/setters necessari).
 */
 
-require_once __DIR__ . '/Models/Computer.php';
+require __DIR__ . '/Models/Computer.php';
+
+class Laptop extends Computer {
+
+   function __construct(protected string $monitor_size, protected string $keyboard, protected string $cam, protected string $battery_capacity){
+      parent::__construct($model, $manufacturer,$storage_capacity, $gpu, $ram);
+      $this->monitor_size = $monitor_size;
+      $this->keyboard = $keyboard;
+      $this->cam = $cam;
+      $this->battery_capacity = $battery_capacity;
+   }
+
+    function get_computer_info(){
+      return "$this->model $this->manufacturer $this->storage_capacity $this->gpu $this->ram $this->monitor_size $this->keyboard $this->cam $this->battery_capacity ";
+    }
+   
+}
 
 
-$computer = new Computer('gf-63', 'MSI', '500gb', 'Nvidia ge-force 1050x', 18);
+$computer = new Computer('gf63', 'MSI', '500gb', 'Nvidia ge-force 1050x', 18);
+
+$laptop = new Laptop('gf773', 'MSI', '1000gb', 'Nvidia ge-force 3050', 36,'18/', 'qwerty mechanics', '1080p', '20000mah');
 
 var_dump($computer);
+var_dump($laptop);
