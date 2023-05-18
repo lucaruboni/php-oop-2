@@ -21,9 +21,9 @@ require_once __DIR__ . '/Models/Desktop.php';
 $computers = [
   
 
-  new Laptop('Laptop', 'gf773', 'MSI', '1000gb', 'Nvidia ge-force 3050', 36,'18inch', 'qwerty mechanics', '1080p', '20000mah'),
+  new Laptop('Laptop', 'gf773', 'MSI', '1000gb', 'Nvidia ge-force 3050', 36,'18inch', 'qwerty mechanics', '1080p', '20000mah', 'https://www.euronics.it/dw/image/v2/BFPN_PRD/on/demandware.static/-/Sites-catalog_euronics_master/default/dw86414b7c/hi-res/212015733_20.jpg?sw=1000&q=90&strip=false'),
 
-  new Desktop('Desktop', 'model-X', 'tesla', '500tb', 'Nvidia ge-force gtx5000', 100, 'Asus ROG 750w', 'corsair 4000-D', 20)
+  new Desktop('Desktop', 'model-X', 'tesla', '500tb', 'Nvidia ge-force gtx5000', 100, 'Asus ROG 750w', 'corsair 4000-D', 20, 'https://pbs.twimg.com/media/EKWY05BX0AAyw-w.jpg:large')
 
 ];
 
@@ -60,7 +60,7 @@ $computers = [
         }
         .my_img{
          height: 300px;
-         width: 300px;
+         width: 400px;
         }
    
    </style>
@@ -89,7 +89,7 @@ $computers = [
                   <div class="card my_card mt-5 d-flex flex-column gap-2">
                   
                     <div class="card-header my_card_header d-flex justify-content-center">
-                    <img class="my_img" src="https://images.unsplash.com/photo-1561154464-82e9adf32764?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60" class="card-img-top" alt="...">
+                    <img class="my_img" src="<?= $computer->img; ?>" class="card-img-top" alt="...">
                     </div>
                     <div class="card-body d-flex flex-column gap-2">
                       <h3 class="card-title"><?= $computer->model; ?>  </h3>
