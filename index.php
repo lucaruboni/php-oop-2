@@ -98,7 +98,7 @@ $computers = [
                       <p class="card-text">Storage Capacity:<?= $computer->storage_capacity; ?></p>
                       <p class="card-text">GPU:<?= $computer->gpu; ?></p>
                       <p class="card-text">RAM:<?= $computer->ram; ?></p>
-                      <?php if ($computer->model === 'gf773') : ?>
+                      <?php if ($computer->type === 'Laptop') : ?>
                       <p class="card-text">Monitor Size:<?= $computer->monitor_size; ?></p>
                       <p class="card-text">Keyboard:<?= $computer->keyboard; ?></p>
                       <p class="card-text">Cam:<?= $computer->cam; ?></p>
