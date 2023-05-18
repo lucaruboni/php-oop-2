@@ -3,8 +3,8 @@
 require_once __DIR__ . '/computer.php';
 
 class Desktop extends Computer {
-    function __construct($type, $model, $manufacturer, $storage_capacity, $gpu, $ram, public string $power_supply, public string $case_model, public int $weight, public string $img ){
-        parent::__construct($type, $model, $manufacturer, $storage_capacity, $gpu, $ram);
+    function __construct($type, $model, $manufacturer, $storage_capacity, $gpu, public string $power_supply, public string $case_model, public int $weight, public string $img ){
+        parent::__construct($type, $model, $manufacturer, $storage_capacity, $gpu);
         $this->power_supply = $power_supply;
         $this->case_model = $case_model;
         $this->weight = $weight;

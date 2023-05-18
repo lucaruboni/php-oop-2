@@ -21,14 +21,22 @@ require_once __DIR__ . '/Models/Desktop.php';
 $computers = [
   
 
-  new Laptop('Laptop', 'gf773', 'MSI', '1000gb', 'Nvidia ge-force 3050', 36,'18inch', 'qwerty mechanics', '1080p', '20000mah', 'https://www.euronics.it/dw/image/v2/BFPN_PRD/on/demandware.static/-/Sites-catalog_euronics_master/default/dw86414b7c/hi-res/212015733_20.jpg?sw=1000&q=90&strip=false'),
+  new Laptop('Laptop', 'gf773', 'MSI', '1000gb', 'Nvidia ge-force 3050', '18inch', 'qwerty mechanics', '1080p', '20000mah', 'https://www.euronics.it/dw/image/v2/BFPN_PRD/on/demandware.static/-/Sites-catalog_euronics_master/default/dw86414b7c/hi-res/212015733_20.jpg?sw=1000&q=90&strip=false'),
 
-  new Desktop('Desktop', 'model-X', 'tesla', '500tb', 'Nvidia ge-force gtx5000', 100, 'Asus ROG 750w', 'corsair 4000-D', 20, 'https://pbs.twimg.com/media/EKWY05BX0AAyw-w.jpg:large')
+  new Desktop('Desktop', 'model-X', 'tesla', '500tb', 'Nvidia ge-force gtx5000',  'Asus ROG 750w', 'corsair 4000-D', 20, 'https://pbs.twimg.com/media/EKWY05BX0AAyw-w.jpg:large')
 
 ];
 
 
+try {
+  foreach ($computers as $computer) {
 
+    $ramCapacity = $computer->setRam(10000, 'gb');
+  }
+  
+}catch (Exception $error){
+  
+}
 
 
 ?>
@@ -62,6 +70,9 @@ $computers = [
          height: 300px;
          width: 400px;
         }
+        .alertMessage{
+          font-weight: 700;
+        }
    
    </style>
    <meta charset="UTF-8">
@@ -82,8 +93,15 @@ $computers = [
 
    <main>
         <div class="container">
-            <div class="row row-cols-3 justify-content-evenly ">
+            
                
+            <div class="col bg-danger  rounded-2 d-flex justify-content-center mt-5">
+              <h1 class="text-center align-self-center alert_message py-5">
+                <?= $ramCapacity . $error->getMessage(); ?>
+              </h1>
+            </div>
+
+            <div class="row row-cols-3 justify-content-evenly mb-5 ">
 
             <?php foreach ($computers as $computer) : ?>  
                   <div class="card my_card mt-5 d-flex flex-column gap-2">
@@ -97,7 +115,7 @@ $computers = [
                       <h6 class="card-subtle"><?= $computer->type; ?> </h6>
                       <p class="card-text">Storage Capacity:<?= $computer->storage_capacity; ?></p>
                       <p class="card-text">GPU:<?= $computer->gpu; ?></p>
-                      <p class="card-text">RAM:<?= $computer->ram; ?></p>
+                      <p class="card-text">RAM:<?= $computer->setRam(18, 'gb'); ?></p>
                       <?php if ($computer->type === 'Laptop') : ?>
                       <p class="card-text">Monitor Size:<?= $computer->monitor_size; ?></p>
                       <p class="card-text">Keyboard:<?= $computer->keyboard; ?></p>

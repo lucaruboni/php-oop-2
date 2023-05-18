@@ -1,10 +1,11 @@
 <?php
 require_once __DIR__ . '/computer.php';
 
+
 class Laptop extends Computer {
 
-    function __construct($type, $model, $manufacturer, $storage_capacity, $gpu, $ram, public string $monitor_size, public string $keyboard, public string $cam, public string $battery_capacity, public string $img){
-       parent::__construct($type, $model, $manufacturer, $storage_capacity, $gpu, $ram);
+    function __construct($type, $model, $manufacturer, $storage_capacity, $gpu, public string $monitor_size, public string $keyboard, public string $cam, public string $battery_capacity, public string $img){
+       parent::__construct($type, $model, $manufacturer, $storage_capacity, $gpu);
        $this->monitor_size = $monitor_size;
        $this->keyboard = $keyboard;
        $this->cam = $cam;
